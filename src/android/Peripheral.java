@@ -625,7 +625,12 @@ public class Peripheral extends BluetoothGattCallback {
 
         final DfuServiceInitiator starter = new DfuServiceInitiator(device.getAddress())
                 .setDeviceName(device.getName())
-                .setKeepBond(false);
+                .setKeepBond(false)
+                .setForceDfu(false)
+                .setPacketsReceiptNotificationsEnabled(true)
+                .setPacketsReceiptNotificationsValue(10)
+                .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
+                .setDisableNotification(true);
 
         // set the ZIP and start the process
         starter.setZip(uri);
