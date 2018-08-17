@@ -638,7 +638,7 @@ public class Peripheral extends BluetoothGattCallback {
                 .setPacketsReceiptNotificationsEnabled(true)
                 .setPacketsReceiptNotificationsValue(10)
                 //.setCustomUuidsForButtonlessDfuWithoutBondSharing(buttonlessDfuServiceUuid, buttonlessDfuControlPointUuid)
-                .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
+                .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(false)
                 .setDisableNotification(true);
 
         // set the ZIP and start the process
