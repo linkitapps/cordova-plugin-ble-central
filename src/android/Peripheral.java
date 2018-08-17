@@ -625,8 +625,8 @@ public class Peripheral extends BluetoothGattCallback {
         //ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
 
         // https://github.com/NordicSemiconductor/Android-DFU-Library/blob/0b907aaf06e2aaa9fcf4cddbff6487623381a625/dfu/src/main/java/no/nordicsemi/android/dfu/ExperimentalButtonlessDfuImpl.java
-        UUID buttonlessDfuServiceUuid = new UUID(0x8E400001F3154F60L, 0x9FB8838830DAEA50L);
-        UUID buttonlessDfuControlPointUuid = new UUID(0x8E400001F3154F60L, 0x9FB8838830DAEA50L);
+        UUID buttonlessDfuServiceUuid = new UUID(0x8EC9FE59F3154F60L, 0x9FB8838830DAEA50L);
+        UUID buttonlessDfuControlPointUuid = new UUID(0x8EC90003F3154F60L, 0x9FB8838830DAEA50L);
 
         //string t =  "8EC9FE59-F315-4F60-9FB8-838830DAEA50";
         
