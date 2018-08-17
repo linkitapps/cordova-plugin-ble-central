@@ -640,8 +640,6 @@ public class Peripheral extends BluetoothGattCallback {
         result.setKeepCallback(true);
         callbackContext.sendPluginResult(result);
 
-        LOG.d(TAG, result);
-
         DfuServiceListenerHelper.registerProgressListener(activity, progressListener);
     }
 
