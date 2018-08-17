@@ -32,9 +32,7 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import android.net.Uri;
 import android.util.Log;
 
-import no.nordicsemi.android.dfu.DfuProgressListenerAdapter;
-import no.nordicsemi.android.dfu.DfuServiceInitiator;
-import no.nordicsemi.android.dfu.DfuServiceListenerHelper;
+import no.nordicsemi.android.dfu.*;
 
 /**
  * Peripheral wraps the BluetoothDevice and provides methods to convert to JSON.

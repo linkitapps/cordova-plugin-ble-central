@@ -1,7 +1,7 @@
 package com.megster.cordova.ble.central;
 
 import android.app.Activity;
-import no.nordicsemi.android.dfu.DfuBaseService;
+import no.nordicsemi.android.dfu.*;
 
 public class DfuService extends DfuBaseService {
 
