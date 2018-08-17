@@ -621,11 +621,11 @@ public class Peripheral extends BluetoothGattCallback {
     public void upgradeFirmware(CallbackContext callbackContext, Uri uri) {
         dfuCallback = callbackContext;
 
-        //ButtonlessDfuServiceUuid bds = new ButtonlessDfuServiceUuid();
-        //ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
+        ButtonlessDfuServiceUuid bds = new ButtonlessDfuServiceUuid();
+        ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
 
-        UUID buttonlessDfuServiceUuid = new UUID("8EC9FE59-F315-4F60-9FB8-838830DAEA50");
-        UUID buttonlessDfuControlPointUuid = new UUID("8EC90003-F315-4F60-9FB8-838830DAEA50");
+        //UUID buttonlessDfuServiceUuid = new UUID("8EC9FE59-F315-4F60-9FB8-838830DAEA50");
+        //UUID buttonlessDfuControlPointUuid = new UUID("8EC90003-F315-4F60-9FB8-838830DAEA50");
 
         //string t =  "8EC9FE59-F315-4F60-9FB8-838830DAEA50";
         
@@ -636,7 +636,7 @@ public class Peripheral extends BluetoothGattCallback {
                 .setForceDfu(false)
                 .setPacketsReceiptNotificationsEnabled(true)
                 .setPacketsReceiptNotificationsValue(10)
-                .setCustomUuidsForButtonlessDfuWithoutBondSharing(buttonlessDfuServiceUuid, buttonlessDfuControlPointUuid)
+                .setCustomUuidsForButtonlessDfuWithoutBondSharing(bds, bdp)
                 .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
                 .setDisableNotification(true);
 
