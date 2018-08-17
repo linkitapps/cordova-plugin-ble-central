@@ -623,7 +623,21 @@ public class Peripheral extends BluetoothGattCallback {
     public void upgradeFirmware(CallbackContext callbackContext, Uri uri) {
         dfuCallback = callbackContext;
 
-        
+        final DfuServiceInitiator starter = new DfuServiceInitiator(device.getAddress())
+                .setDeviceName(device.getName())
+                .setKeepBond(false)
+                .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
+                .setDisableNotification(false);
+
+        // set the ZIP and start the process
+        starter.setZip(uri);
+        starter.start(activity, DfuService.class);
+
+        PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
+        result.setKeepCallback(true);
+        callbackContext.sendPluginResult(result);
+
+        DfuServiceListenerHelper.registerProgressListener(activity, progressListener);
     }
 
     private void unregisterDfuProgressListener() {
