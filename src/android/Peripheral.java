@@ -621,11 +621,12 @@ public class Peripheral extends BluetoothGattCallback {
     public void upgradeFirmware(CallbackContext callbackContext, Uri uri) {
         dfuCallback = callbackContext;
 
-        ButtonlessDfuServiceUuid bds = new ButtonlessDfuServiceUuid();
-        ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
+        //ButtonlessDfuServiceUuid bds = new ButtonlessDfuServiceUuid();
+        //ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
 
-        //UUID buttonlessDfuServiceUuid = new UUID("8EC9FE59-F315-4F60-9FB8-838830DAEA50");
-        //UUID buttonlessDfuControlPointUuid = new UUID("8EC90003-F315-4F60-9FB8-838830DAEA50");
+        // https://github.com/NordicSemiconductor/Android-DFU-Library/blob/0b907aaf06e2aaa9fcf4cddbff6487623381a625/dfu/src/main/java/no/nordicsemi/android/dfu/ExperimentalButtonlessDfuImpl.java
+        UUID buttonlessDfuServiceUuid = new UUID(0x8E400001F3154F60L, 0x9FB8838830DAEA50L);
+        UUID buttonlessDfuControlPointUuid = new UUID(0x8E400001F3154F60L, 0x9FB8838830DAEA50L);
 
         //string t =  "8EC9FE59-F315-4F60-9FB8-838830DAEA50";
         
@@ -636,7 +637,7 @@ public class Peripheral extends BluetoothGattCallback {
                 .setForceDfu(false)
                 .setPacketsReceiptNotificationsEnabled(true)
                 .setPacketsReceiptNotificationsValue(10)
-                .setCustomUuidsForButtonlessDfuWithoutBondSharing(bds, bdp)
+                .setCustomUuidsForButtonlessDfuWithoutBondSharing(buttonlessDfuServiceUuid, buttonlessDfuControlPointUuid)
                 .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
                 .setDisableNotification(true);
 
