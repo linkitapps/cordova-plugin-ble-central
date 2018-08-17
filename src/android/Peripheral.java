@@ -617,9 +617,18 @@ public class Peripheral extends BluetoothGattCallback {
         BLECommand command = new BLECommand(callbackContext, null, null, BLECommand.READ_RSSI);
         queueCommand(command);
     }
-
+// 8EC9FE59-F315-4F60-9FB8-838830DAEA50
     public void upgradeFirmware(CallbackContext callbackContext, Uri uri) {
         dfuCallback = callbackContext;
+
+        //ButtonlessDfuServiceUuid bds = new ButtonlessDfuServiceUuid();
+        //ButtonlessDfuControlPointUuid bdp = new ButtonlessDfuControlPointUuid();
+
+        UUID buttonlessDfuServiceUuid = new UUID("8EC9FE59-F315-4F60-9FB8-838830DAEA50");
+        UUID buttonlessDfuControlPointUuid = new UUID("8EC90003-F315-4F60-9FB8-838830DAEA50");
+
+        //string t =  "8EC9FE59-F315-4F60-9FB8-838830DAEA50";
+        
 
         final DfuServiceInitiator starter = new DfuServiceInitiator(device.getAddress())
                 .setDeviceName(device.getName())
@@ -627,6 +636,7 @@ public class Peripheral extends BluetoothGattCallback {
                 .setForceDfu(false)
                 .setPacketsReceiptNotificationsEnabled(true)
                 .setPacketsReceiptNotificationsValue(10)
+                .setCustomUuidsForButtonlessDfuWithoutBondSharing(buttonlessDfuServiceUuid, buttonlessDfuControlPointUuid)
                 .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true)
                 .setDisableNotification(true);
 
