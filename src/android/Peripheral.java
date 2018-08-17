@@ -32,7 +32,9 @@ import java.util.concurrent.ConcurrentLinkedQueue;
 import android.net.Uri;
 import android.util.Log;
 
-import no.nordicsemi.android.dfu.*;
+import no.nordicsemi.android.dfu.DfuProgressListenerAdapter;
+import no.nordicsemi.android.dfu.DfuServiceInitiator;
+import no.nordicsemi.android.dfu.DfuServiceListenerHelper;
 
 /**
  * Peripheral wraps the BluetoothDevice and provides methods to convert to JSON.
@@ -621,20 +623,7 @@ public class Peripheral extends BluetoothGattCallback {
     public void upgradeFirmware(CallbackContext callbackContext, Uri uri) {
         dfuCallback = callbackContext;
 
-        final DfuServiceInitiator starter = new DfuServiceInitiator(device.getAddress())
-                .setDeviceName(device.getName())
-                .setKeepBond(false)
-                .setUnsafeExperimentalButtonlessServiceInSecureDfuEnabled(true);
-
-        // set the ZIP and start the process
-        starter.setZip(uri);
-        starter.start(activity, DfuService.class);
-
-        PluginResult result = new PluginResult(PluginResult.Status.NO_RESULT);
-        result.setKeepCallback(true);
-        callbackContext.sendPluginResult(result);
-
-        DfuServiceListenerHelper.registerProgressListener(activity, progressListener);
+        
     }
 
     private void unregisterDfuProgressListener() {
